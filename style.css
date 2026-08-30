@@ -1239,3 +1239,94 @@ button:active {
     transform: scale(1.08);
   }
       }
+
+/* 🎁 GIFT OPENING ANIMATION */
+
+.big-gift.opened {
+  animation: giftOpenShake 0.6s ease;
+}
+
+.big-gift.opened .gift-lid {
+  animation: lidOpen 1.2s ease forwards;
+}
+
+.big-gift.opened .gift-bow {
+  animation: bowFly 1.2s ease forwards;
+}
+
+.big-gift.opened::after {
+  content: "✨";
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  font-size: 55px;
+  animation: giftLight 1.5s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes giftOpenShake {
+
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: rotate(-4deg) scale(1.04);
+  }
+
+  50% {
+    transform: rotate(4deg) scale(1.08);
+  }
+
+  75% {
+    transform: rotate(-2deg) scale(1.05);
+  }
+}
+
+@keyframes lidOpen {
+
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+
+  40% {
+    transform: translateY(-35px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translateY(-85px) rotate(-12deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bowFly {
+
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(-100px) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@keyframes giftLight {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.2);
+  }
+}
