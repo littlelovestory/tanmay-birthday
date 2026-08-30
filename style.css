@@ -1524,3 +1524,257 @@ button:active {
 /* important words */
 
 .ending-text
+
+/* =========================================
+   💗 SPECIAL GIFT REVEAL
+========================================= */
+
+.cinematic-gift-reveal {
+  min-height: 600px;
+  padding: 45px 22px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(201, 143, 157, 0.18),
+      transparent 35%
+    ),
+    #08050a;
+
+  border-radius: 24px;
+  animation: revealAppear 1.2s ease forwards;
+}
+
+/* ✦ SPARKLES */
+
+.reveal-sparkles {
+  color: var(--gold);
+  font-size: 20px;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+  animation: sparkleReveal 2s ease-in-out infinite;
+}
+
+/* LITTLE INTRO */
+
+.cinematic-gift-reveal .little-line {
+  color: var(--rose);
+  font-size: 13px;
+  letter-spacing: 1px;
+  animation: revealText 1s ease forwards;
+}
+
+/* TITLE */
+
+.cinematic-gift-reveal h2 {
+  margin-top: 18px;
+  color: var(--cream);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 9vw, 46px);
+  line-height: 1.05;
+  font-weight: 500;
+  animation: revealTitle 1.3s ease forwards;
+}
+
+/* 💌 MEMORY CARD */
+
+.memory-card {
+  width: 100%;
+  max-width: 390px;
+  margin: 35px auto 0;
+  padding: 30px 22px;
+
+  border: 1px solid rgba(201, 168, 106, 0.25);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.075),
+      rgba(255,255,255,0.025)
+    );
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  animation: cardReveal 1.4s ease forwards;
+}
+
+/* HEART */
+
+.memory-card-heart {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(201,168,106,0.4);
+  border-radius: 50%;
+
+  color: var(--rose);
+  font-size: 27px;
+
+  animation: heartPulse 2s ease-in-out infinite;
+}
+
+/* CARD TEXT */
+
+.memory-card p {
+  max-width: 340px;
+  margin: 0 auto 18px;
+
+  color: rgba(248,243,238,0.72);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* HIGHLIGHT */
+
+.memory-card .highlight {
+  color: var(--cream);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+/* DIVIDER */
+
+.memory-divider {
+  width: 45px;
+  height: 1px;
+  margin: 25px auto;
+
+  background: rgba(201,168,106,0.55);
+
+  animation: dividerReveal 1s ease forwards;
+}
+
+/* FINAL CARD LINE */
+
+.memory-card h3 {
+  margin-top: 18px;
+
+  color: var(--gold);
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* BOTTOM MESSAGE */
+
+.reveal-bottom {
+  margin: 28px auto 0;
+  color: rgba(248,243,238,0.58);
+  font-size: 13px;
+  line-height: 1.7;
+  animation: revealText 2s ease forwards;
+}
+
+/* BUTTON */
+
+.cinematic-gift-reveal button {
+  margin-top: 22px;
+  animation: revealButton 1.5s ease forwards;
+}
+
+/* =========================================
+   ✨ REVEAL ANIMATIONS
+========================================= */
+
+@keyframes revealAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealTitle {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    letter-spacing: 4px;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0;
+  }
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sparkleReveal {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes dividerReveal {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 45px;
+    opacity: 1;
+  }
+}
+
+@keyframes revealButton {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }
