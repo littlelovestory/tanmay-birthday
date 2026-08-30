@@ -1330,3 +1330,111 @@ button:active {
     transform: translate(-50%, -50%) scale(2.2);
   }
 }
+
+/* 🎶 CINEMATIC FINAL SURPRISE */
+
+.cinematic-final {
+  min-height: 600px;
+  padding: 55px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 170, 210, 0.15),
+      transparent 45%
+    ),
+    #070509;
+
+  border-radius: 24px;
+  animation: finalFade 2s ease;
+}
+
+.final-stars {
+  color: #f5c5dc;
+  font-size: 25px;
+  letter-spacing: 12px;
+  animation: starsGlow 2.5s infinite;
+}
+
+.cinematic-final h2 {
+  color: white;
+  font-size: 30px;
+  line-height: 1.35;
+  margin: 25px 0;
+}
+
+.final-heart {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 55px;
+  color: #f6c2da;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 0 25px rgba(255, 150, 200, 0.25),
+    0 0 70px rgba(255, 150, 200, 0.12);
+
+  margin: 25px 0;
+
+  animation: heartBeat 2s infinite;
+}
+
+.final-message {
+  color: #d9ced6;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.cinematic-final button {
+  position: relative;
+  z-index: 5;
+}
+
+@keyframes finalFade {
+
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes starsGlow {
+
+  0%, 100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes heartBeat {
+
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+  }
