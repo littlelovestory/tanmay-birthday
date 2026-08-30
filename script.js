@@ -781,18 +781,35 @@ function showGift() {
 
 }
 // 🎁 OPEN GIFT
-
 function openGift() {
+
+  const gift =
+    document.querySelector(".big-gift");
 
   const message =
     document.getElementById("gift-message");
 
+  if (!gift || gift.classList.contains("opened")) return;
+
+  gift.classList.add("opened");
+
   message.innerHTML =
-    "You actually opened ittt 😭💗";
+    "Waittt... you actually opened it. 🥹💗";
+
+  createBirthdayHearts();
 
   setTimeout(() => {
+
+    message.innerHTML =
+      "Okay... now look inside. ♡";
+
+  }, 1200);
+
+  setTimeout(() => {
+
     showFinalSurprise();
-  }, 2000);
+
+  }, 3000);
 
 }
 // 🎶 FINAL SURPRISE
