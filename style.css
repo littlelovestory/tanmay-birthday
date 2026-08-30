@@ -432,3 +432,215 @@ button:active {
     background-position: -200% center;
   }
   }
+/* ---------- MEMORY QUIZ PREMIUM ---------- */
+
+#question-number {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+#question {
+  max-width: 430px;
+  margin: 8px auto 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(25px, 7vw, 34px);
+  line-height: 1.15;
+  font-weight: 500;
+  color: var(--cream);
+  animation: questionAppear 0.6s ease;
+}
+
+#options {
+  width: 100%;
+  max-width: 390px;
+  margin-top: 25px;
+  display: grid;
+  gap: 11px;
+}
+
+#options button {
+  width: 100%;
+  margin-top: 0;
+  padding: 14px 18px;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.045);
+  color: rgba(248,243,238,0.9);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#options button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201,168,106,0.65);
+  background: rgba(201,168,106,0.10);
+}
+
+#options button:active {
+  transform: scale(0.97);
+}
+
+#quiz-message {
+  min-height: 24px;
+  margin-top: 17px;
+  color: var(--rose);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-style: italic;
+  animation: messageAppear 0.5s ease;
+}
+
+/* ---------- UNLOCK ---------- */
+
+.final-unlock {
+  width: 100%;
+  animation: unlockAppear 1s ease forwards;
+}
+
+.unlock-icon {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201,168,106,0.5);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 32px;
+  animation: heartPulse 2s ease-in-out infinite;
+}
+
+.final-unlock h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.final-unlock p {
+  margin: 12px auto 0;
+}
+
+.final-unlock button {
+  margin-top: 28px;
+}
+
+/* ---------- LOVE MESSAGE ---------- */
+
+.love-message {
+  animation: loveAppear 1.5s ease forwards;
+}
+
+.love-message h2 {
+  margin-top: 25px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(38px, 10vw, 58px);
+  line-height: 0.95;
+  font-weight: 500;
+  background: linear-gradient(
+    120deg,
+    var(--cream),
+    var(--rose),
+    var(--gold),
+    var(--cream)
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 5s linear infinite;
+}
+
+.love-message p {
+  margin: 18px auto 0;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes questionAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes unlockAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes loveAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media (max-width: 380px) {
+
+  #question {
+    font-size: 24px;
+  }
+
+  #options button {
+    padding: 13px 14px;
+    font-size: 12px;
+  }
+
+  .time-box {
+    min-width: 60px;
+  }
+
+  .time-box span {
+    font-size: 24px;
+  }
+}
