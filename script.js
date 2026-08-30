@@ -305,7 +305,7 @@ function showFinalUnlock() {
       </p>
 
       <p>
-        6/6 memories remembered.
+        5/5 memories remembered.
       </p>
 
       <button onclick="startSurprise()">
