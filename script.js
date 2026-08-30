@@ -489,7 +489,7 @@ function showBirthdayLetter() {
 
       </div>
 
-      <button onclick="showNextSurprise()">
+      <button onclick="showDarkScreen()">
         There's more waiting for you… ♡ →
       </button>
 
@@ -500,6 +500,72 @@ function showBirthdayLetter() {
 }
 
 
+// 🌑 DRAMATIC DARK SCREEN
+
+function showDarkScreen() {
+
+  quiz.innerHTML = `
+    <div class="dark-screen">
+
+      <p class="dramatic-text">
+        Wait...
+      </p>
+
+      <p class="dramatic-text second">
+        We're not done yet. ♡
+      </p>
+
+      <button onclick="showCake()">
+        There's one more thing... →
+      </button>
+
+    </div>
+  `;
+
+}
+// 🎂 CAKE SURPRISE
+
+function showCake() {
+
+  quiz.innerHTML = `
+    <div class="cake-screen">
+
+      <p class="little-line">
+        🎂 Make a wish, babyyyy...
+      </p>
+
+      <div class="cake">
+        🎂
+      </div>
+
+      <div class="candle" onclick="blowCandle()">
+        🕯️
+      </div>
+
+      <h2>
+        Happy Birthdayyy<br>
+        my babyyyyy ♡
+      </h2>
+
+      <p id="candle-message">
+        Tap the candle... 🕯️
+      </p>
+
+    </div>
+  `;
+
+}
+function blowCandle() {
+
+  const message =
+    document.getElementById("candle-message");
+
+  message.innerHTML =
+    "Happyyyy Birthdayyy myyy babyyyyy 🥹💗";
+
+  createBirthdayHearts();
+
+}
 // ♡ FLOATING HEARTS
 
 function createBirthdayHearts() {
