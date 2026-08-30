@@ -783,61 +783,100 @@ function showGift() {
 // 🎁 OPEN GIFT
 function openGift() {
 
-  const gift =
-    document.querySelector(".big-gift");
+const gift =
+document.querySelector(".big-gift");
 
-  const message =
-    document.getElementById("gift-message");
+const message =
+document.getElementById("gift-message");
 
-  if (!gift || gift.classList.contains("opened")) return;
+if (!gift || gift.classList.contains("opened")) return;
 
-  gift.classList.add("opened");
+gift.classList.add("opened");
 
-  message.innerHTML =
-    "Waittt... you actually opened it. 🥹💗";
+message.innerHTML =
+"You actually opened it... ♡";
 
-  createBirthdayHearts();
+createBirthdayHearts();
 
-  setTimeout(() => {
+setTimeout(() => {
 
-    message.innerHTML =
-      "Okay... now look inside. ♡";
+quiz.innerHTML = `
 
-  }, 1200);
+  <div class="gift-reveal cinematic-gift-reveal">
 
-  setTimeout(() => {
+    <div class="reveal-sparkles">
+      ✦　♡　✦
+    </div>
 
-    showFinalSurprise();
+    <p class="little-line">
+      okay... now look inside.
+    </p>
 
-  }, 3000);
+    <h2>
+      I couldn't really<br>
+      wrap this one.
+    </h2>
 
-}
-// 🎶 FINAL SURPRISE
-function playFinalMessage() {
+    <div class="memory-card">
 
-  quiz.innerHTML = `
-    <div class="audio-screen">
-
-      <p class="little-line">
-        💗 One last thing...
-      </p>
-
-      <h2>
-        Just for youuu ♡
-      </h2>
+      <div class="memory-card-heart">
+        ♡
+      </div>
 
       <p>
-        Some things are better left as words. 🥹💗
+        Because the thing I wanted to give you
+        isn't something I could put inside a box.
       </p>
 
-      <button onclick="showEndMessage()">
-        Read my last message ♡
-      </button>
+      <p>
+        It's every little moment,
+        every stupid conversation,
+        every laugh,
+        every memory...
+      </p>
+
+      <p class="highlight">
+        and every version of you
+        that I've had the chance to know.
+      </p>
+
+      <div class="memory-divider"></div>
+
+      <p>
+        So if you ever wonder
+        what your birthday gift was...
+      </p>
+
+      <h3>
+        it's this little reminder<br>
+        that you are so, so special to me. ♡
+      </h3>
 
     </div>
-  `;
+
+    <p class="reveal-bottom">
+      And there's just one last thing
+      I want you to know...
+    </p>
+
+    <button onclick="showFinalSurprise()">
+      One last thing ♡
+    </button>
+
+  </div>
+
+`;
+
+createBirthdayHearts();
+
+}, 1800);
 
 }
+
+<button onclick="showEndMessage()">
+  One last thing ♡
+</button>
+
 // 💗 FINAL EMOTIONAL MESSAGE
 
 function showEndMessage() {
