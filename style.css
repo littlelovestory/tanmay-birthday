@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #f8f3ee;
+  --rose: #c98f9d;
+  --deep: #171216;
+  --gold: #c9a86a;
+  --soft-white: rgba(255, 255, 255, 0.82);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(201, 168, 106, 0.13), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(201, 143, 157, 0.13), transparent 30%),
+    var(--deep);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---------- FLOATING LIGHT ---------- */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.25;
+  animation: glowMove 9s ease-in-out infinite alternate;
+}
+
+body::before {
+  background: var(--rose);
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  background: var(--gold);
+  bottom: -100px;
+  right: -100px;
+  animation-delay: 3s;
+}
+
+@keyframes glowMove {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(45px, 35px) scale(1.15);
+  }
+}
+
+/* ---------- MAIN CARD ---------- */
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: min(90%, 520px);
+  min-height: 80vh;
+  margin: 10vh auto;
+  padding: 55px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 32px;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  animation: cardAppear 1.3s ease forwards;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+
+h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 12vw, 70px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin-bottom: 22px;
+}
+
+p {
+  max-width: 390px;
+  color: rgba(248, 243, 238, 0.72);
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ---------- BUTTON ---------- */
+
+button {
+  position: relative;
+  margin-top: 35px;
+  padding: 15px 30px;
+
+  border: 1px solid rgba(201, 168, 106, 0.5);
+  border-radius: 100px;
+
+  background: rgba(201, 168, 106, 0.08);
+  color: var(--cream);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+button:hover::before {
+  transform: translateX(100%);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(201, 168, 106, 0.18);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: 91%;
+    min-height: 78vh;
+    padding: 45px 22px;
+    margin: 11vh auto;
+    border-radius: 28px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 14px 25px;
+  }
+  }
