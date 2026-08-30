@@ -1,4 +1,3 @@
-const TEST_MODE = false;
 const countdown = document.getElementById("countdown");
 const quiz = document.getElementById("quiz");
 
@@ -49,6 +48,9 @@ const questions = [
 let currentQuestion = 0;
 let birthdayShown = false;
 
+
+// 🎂 FIND NEXT AUGUST 31 MIDNIGHT
+
 function getNextBirthday() {
   const now = new Date();
 
@@ -73,10 +75,14 @@ function getNextBirthday() {
 
 let birthdayTime = getNextBirthday();
 
+
+// ⏳ COUNTDOWN
+
 function updateCountdown() {
+
   const now = new Date();
 
-  // 🎂 August 31 = birthday experience
+  // Birthday day has arrived
   if (
     now.getMonth() === 7 &&
     now.getDate() === 31
@@ -85,6 +91,7 @@ function updateCountdown() {
       birthdayShown = true;
       showBirthday();
     }
+
     return;
   }
 
@@ -106,62 +113,110 @@ function updateCountdown() {
     (difference / 1000) % 60
   );
 
-  if (countdown) {
-    countdown.innerHTML = `
-      <div class="time-box">
-        <span>${String(days).padStart(2, "0")}</span>
-        <small>DAYS</small>
-      </div>
+  countdown.innerHTML = `
+    <div class="time-box">
+      <span>${String(days).padStart(2, "0")}</span>
+      <small>DAYS</small>
+    </div>
 
-      <div class="time-box">
-        <span>${String(hours).padStart(2, "0")}</span>
-        <small>HOURS</small>
-      </div>
+    <div class="time-box">
+      <span>${String(hours).padStart(2, "0")}</span>
+      <small>HOURS</small>
+    </div>
 
-      <div class="time-box">
-        <span>${String(minutes).padStart(2, "0")}</span>
-        <small>MINUTES</small>
-      </div>
+    <div class="time-box">
+      <span>${String(minutes).padStart(2, "0")}</span>
+      <small>MINUTES</small>
+    </div>
 
-      <div class="time-box">
-        <span>${String(seconds).padStart(2, "0")}</span>
-        <small>SECONDS</small>
-      </div>
-    `;
-  }
+    <div class="time-box">
+      <span>${String(seconds).padStart(2, "0")}</span>
+      <small>SECONDS</small>
+    </div>
+  `;
 }
 
+
+// 💗 OPEN BIRTHDAY
+
 function showBirthday() {
-  if (countdown) {
-    countdown.style.display = "none";
+
+  birthdayShown = true;
+
+  countdown.style.display = "none";
+
+  const paragraphs =
+    document.querySelectorAll(".container > p");
+
+  if (paragraphs[0]) {
+    paragraphs[0].textContent =
+      "today is all about you ♡";
   }
 
-  if (quiz) {
-    quiz.style.display = "block";
-    startQuiz();
+  if (paragraphs[1]) {
+    paragraphs[1].textContent =
+      "I've been waiting to show you this...";
   }
 
-  const intro = document.querySelector(".container > p");
+  const title =
+    document.querySelector(".container > h1");
 
-  if (intro) {
-    intro.textContent = "today is all about you ♡";
-  }
+  title.innerHTML =
+    "HAPPY<br>BIRTHDAY<br>MY BABYYYY ♡";
 
-  const title = document.querySelector(".container > h1");
+  quiz.style.display = "block";
 
-  if (title) {
-    title.innerHTML = "HAPPY<br>BIRTHDAY<br>MY BABYYYY ♡";
-  }
+  quiz.innerHTML = `
+    <div class="birthday-reveal">
+
+      <p class="little-line">
+        today is your special day ♡
+      </p>
+
+      <h2>
+        Happyyy Birthdayyy<br>
+        my babyyyyy 💗
+      </h2>
+
+      <p>
+        I made this little world just for you.
+      </p>
+
+      <button onclick="startQuiz()">
+        There's something else… →
+      </button>
+
+    </div>
+  `;
 
   createBirthdayHearts();
 }
 
+
+// 🔐 START QUIZ
+
 function startQuiz() {
+
   currentQuestion = 0;
+
+  quiz.innerHTML = `
+    <div id="question-number"></div>
+
+    <h2 id="question"></h2>
+
+    <div id="options"></div>
+
+    <p id="quiz-message"></p>
+  `;
+
   showQuestion();
 }
 
+
+// 📝 SHOW QUESTION
+
 function showQuestion() {
+
   const questionNumber =
     document.getElementById("question-number");
 
@@ -188,17 +243,24 @@ function showQuestion() {
   options.innerHTML = "";
 
   q.options.forEach(option => {
-    const button = document.createElement("button");
+
+    const button =
+      document.createElement("button");
 
     button.textContent = option;
 
-    button.onclick = () => checkAnswer(option);
+    button.onclick = () =>
+      checkAnswer(option);
 
     options.appendChild(button);
   });
 }
 
+
+// 💗 CHECK ANSWER
+
 function checkAnswer(selected) {
+
   const q = questions[currentQuestion];
 
   const message =
@@ -211,9 +273,18 @@ function checkAnswer(selected) {
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
-      setTimeout(showQuestion, 1000);
+
+      setTimeout(
+        showQuestion,
+        1000
+      );
+
     } else {
-      setTimeout(showFinalUnlock, 1000);
+
+      setTimeout(
+        showFinalUnlock,
+        1000
+      );
     }
 
   } else {
@@ -223,20 +294,26 @@ function checkAnswer(selected) {
   }
 }
 
+
+// 🔓 ALL QUESTIONS COMPLETED
+
 function showFinalUnlock() {
 
-  const quiz = document.getElementById("quiz");
-
   quiz.innerHTML = `
+
     <div class="final-unlock">
 
       <div class="unlock-icon">♡</div>
 
       <h2>ACCESS GRANTED</h2>
 
-      <p>Okay… you're officially allowed inside. 🥹</p>
+      <p>
+        Okay… you're officially allowed inside. 🥹
+      </p>
 
-      <p>6/6 memories remembered.</p>
+      <p>
+        6/6 memories remembered.
+      </p>
 
       <button onclick="startSurprise()">
         But your actual surprise starts now… →
@@ -248,11 +325,13 @@ function showFinalUnlock() {
   createBirthdayHearts();
 }
 
+
+// 💌 SURPRISE
+
 function startSurprise() {
 
-  const quiz = document.getElementById("quiz");
-
   quiz.innerHTML = `
+
     <div class="love-message">
 
       <p>And now, finally...</p>
@@ -273,6 +352,9 @@ function startSurprise() {
   createBirthdayHearts();
 }
 
+
+// ♡ FLOATING HEARTS
+
 function createBirthdayHearts() {
 
   for (let i = 0; i < 25; i++) {
@@ -282,17 +364,24 @@ function createBirthdayHearts() {
       const heart =
         document.createElement("span");
 
-      heart.className = "floating-heart";
+      heart.className =
+        "floating-heart";
+
       heart.textContent = "♡";
 
       heart.style.left =
-        Math.random() * window.innerWidth + "px";
+        Math.random() *
+        window.innerWidth +
+        "px";
 
       heart.style.top =
-        window.innerHeight + "px";
+        window.innerHeight +
+        "px";
 
       heart.style.fontSize =
-        15 + Math.random() * 25 + "px";
+        15 +
+        Math.random() * 25 +
+        "px";
 
       document.body.appendChild(heart);
 
@@ -304,6 +393,12 @@ function createBirthdayHearts() {
   }
 }
 
+
+// 🚀 START
+
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(
+  updateCountdown,
+  1000
+);
