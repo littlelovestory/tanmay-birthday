@@ -385,9 +385,7 @@ function heartExplosion() {
     }, i * 35);
   }
 }
-  }
-}
-
+  
 
 // 💌 BIRTHDAY LETTER
 
@@ -502,9 +500,6 @@ function showBirthdayLetter() {
 }
 
 
-// ♡ FLOATING HEARTS
-
-function createBirthdayHearts() {
 // ♡ FLOATING HEARTS
 
 function createBirthdayHearts() {
