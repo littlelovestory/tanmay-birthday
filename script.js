@@ -505,72 +505,196 @@ function showBirthdayLetter() {
 function showDarkScreen() {
 
   quiz.innerHTML = `
-    <div class="dark-screen">
+    <div class="dark-screen cinematic-dark">
+
+      <div class="dramatic-glow"></div>
 
       <p class="dramatic-text">
         Wait...
       </p>
 
       <p class="dramatic-text second">
-        We're not done yet. ♡
+        I told you there was more.
       </p>
 
-      <button onclick="showCake()">
-        There's one more thing... →
+      <p class="dramatic-text third">
+        Close your eyes for a second... ♡
+      </p>
+
+      <button class="dramatic-button" onclick="showCake()">
+        Okay... I'm ready →
       </button>
 
     </div>
   `;
 
 }
-// 🎂 CAKE SURPRISE
+
+
+// 🎂 CINEMATIC CAKE SURPRISE
 
 function showCake() {
 
   quiz.innerHTML = `
-    <div class="cake-screen">
+    <div class="cake-screen cinematic-cake">
 
-      <p class="little-line">
-        🎂 Make a wish, babyyyy...
-      </p>
+      <div class="cake-intro">
+        <p class="little-line">
+          🎂 A little birthday moment...
+        </p>
 
-      <div class="cake">
-        🎂
+        <h2>
+          Make a wish,<br>
+          my babyyyyy ♡
+        </h2>
       </div>
 
-      <div class="candle" onclick="blowCandle()">
-        🕯️
+      <div class="cake-wrapper">
+
+        <div class="cake-glow"></div>
+
+        <div class="cake-real">
+
+          <div class="cake-top">
+            <span class="cake-decoration">♡</span>
+            <span class="cake-decoration">♡</span>
+            <span class="cake-decoration">♡</span>
+          </div>
+
+          <div class="cake-layer top-layer"></div>
+          <div class="cake-layer middle-layer"></div>
+          <div class="cake-layer bottom-layer"></div>
+
+        </div>
+
+        <div class="candles">
+
+          <div class="candle-real" onclick="blowCandle(this)">
+            <div class="flame"></div>
+            <div class="wick"></div>
+            <div class="candle-stick"></div>
+          </div>
+
+          <div class="candle-real small-candle">
+            <div class="flame"></div>
+            <div class="wick"></div>
+            <div class="candle-stick"></div>
+          </div>
+
+          <div class="candle-real small-candle">
+            <div class="flame"></div>
+            <div class="wick"></div>
+            <div class="candle-stick"></div>
+          </div>
+
+        </div>
+
       </div>
 
-      <h2>
-        Happy Birthdayyy<br>
-        my babyyyyy ♡
-      </h2>
-
-      <p id="candle-message">
-        Tap the candle... 🕯️
+      <p id="candle-message" class="candle-hint">
+        Tap a candle to make a wish... 🕯️
       </p>
+
+      <div id="birthday-celebration"></div>
 
     </div>
   `;
 
 }
 
-function blowCandle() {
+
+// 🕯️ BLOW / TAP CANDLE
+
+function blowCandle(clickedCandle) {
+
+  if (clickedCandle.classList.contains("blown")) return;
+
+  const candles =
+    document.querySelectorAll(".candle-real");
+
+  candles.forEach(candle => {
+    candle.classList.add("blown");
+  });
 
   const message =
     document.getElementById("candle-message");
 
   message.innerHTML =
-    "Happyyyy Birthdayyy myyy babyyyyy 🥹💗";
+    "Happy Birthdayyy, my babyyyyy... 🥹💗";
+
+  // 🎤 YOUR HAPPY BIRTHDAY VOICE WILL PLAY HERE LATER
 
   createBirthdayHearts();
 
+  createConfetti();
+
+  setTimeout(() => {
+
+    const celebration =
+      document.getElementById("birthday-celebration");
+
+    celebration.innerHTML = `
+      <div class="celebration-text">
+        <span>✨</span>
+        <strong>HAPPY BIRTHDAYYYY</strong>
+        <span>💗</span>
+      </div>
+
+      <p>
+        I wish I could see your face right now. 🥹
+      </p>
+    `;
+
+  }, 700);
+
   setTimeout(() => {
     showGift();
-  }, 2500);
+  }, 5000);
 
 }
+
+
+// 🎉 CONFETTI
+
+function createConfetti() {
+
+  for (let i = 0; i < 45; i++) {
+
+    setTimeout(() => {
+
+      const piece =
+        document.createElement("span");
+
+      piece.className = "confetti-piece";
+
+      piece.textContent =
+        ["✦", "♡", "•", "✧"][
+          Math.floor(Math.random() * 4)
+        ];
+
+      piece.style.left =
+        Math.random() * window.innerWidth + "px";
+
+      piece.style.top =
+        "-20px";
+
+      piece.style.fontSize =
+        12 + Math.random() * 18 + "px";
+
+      piece.style.animationDuration =
+        2 + Math.random() * 2 + "s";
+
+      document.body.appendChild(piece);
+
+      setTimeout(() => {
+        piece.remove();
+      }, 4500);
+
+    }, i * 35);
+
+  }
+
+        }
 
 // ♡ FLOATING HEARTS
 
