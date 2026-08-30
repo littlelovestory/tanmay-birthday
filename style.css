@@ -644,3 +644,429 @@ button:active {
     font-size: 24px;
   }
 }
+
+/* =========================================
+   🌑 CINEMATIC DARK SCREEN
+========================================= */
+
+.cinematic-dark {
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #050308;
+  text-align: center;
+  border-radius: 24px;
+  animation: darkAppear 1s ease;
+}
+
+.dramatic-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: rgba(255, 105, 180, 0.12);
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: glowPulse 3s infinite alternate;
+}
+
+.dramatic-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 28px;
+  margin: 8px;
+  letter-spacing: 1px;
+  animation: dramaticFade 1.5s ease forwards;
+}
+
+.dramatic-text.second {
+  opacity: 0;
+  animation-delay: 1.2s;
+}
+
+.dramatic-text.third {
+  opacity: 0;
+  font-size: 16px;
+  color: #d8c9d5;
+  animation-delay: 2.5s;
+}
+
+.dramatic-button {
+  position: relative;
+  z-index: 2;
+  margin-top: 28px;
+  padding: 13px 24px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 30px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  animation: buttonAppear 1s ease 3.5s forwards;
+}
+
+
+/* =========================================
+   🎂 CINEMATIC CAKE
+========================================= */
+
+.cinematic-cake {
+  min-height: 600px;
+  padding: 30px 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 45%,
+    rgba(255, 170, 210, 0.12),
+    transparent 32%),
+    #08050a;
+  border-radius: 24px;
+  animation: cakeAppear 1.2s ease;
+}
+
+.cake-intro {
+  animation: cakeIntro 1.5s ease;
+}
+
+.cake-intro h2 {
+  color: white;
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+
+/* Cake glow */
+
+.cake-wrapper {
+  position: relative;
+  width: 300px;
+  height: 270px;
+  margin: 10px auto 0;
+}
+
+.cake-glow {
+  position: absolute;
+  width: 240px;
+  height: 150px;
+  left: 30px;
+  top: 70px;
+  background: rgba(255, 150, 200, 0.18);
+  filter: blur(45px);
+  border-radius: 50%;
+}
+
+
+/* Cake body */
+
+.cake-real {
+  position: absolute;
+  width: 220px;
+  height: 145px;
+  left: 40px;
+  bottom: 15px;
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.6));
+}
+
+.cake-layer {
+  position: absolute;
+  left: 0;
+  width: 220px;
+  border-radius: 18px 18px 12px 12px;
+  box-shadow:
+    inset 0 8px 0 rgba(255,255,255,0.12),
+    inset 0 -8px 0 rgba(0,0,0,0.12);
+}
+
+.bottom-layer {
+  height: 60px;
+  bottom: 0;
+  background: linear-gradient(#c8759e, #7c385d);
+}
+
+.middle-layer {
+  height: 55px;
+  bottom: 48px;
+  left: 8px;
+  width: 204px;
+  background: linear-gradient(#e29ab9, #a95078);
+}
+
+.top-layer {
+  height: 48px;
+  bottom: 92px;
+  left: 18px;
+  width: 184px;
+  background: linear-gradient(#f0b6ce, #c86f99);
+  border-radius: 25px 25px 15px 15px;
+}
+
+.cake-top {
+  position: absolute;
+  z-index: 5;
+  left: 18px;
+  top: 5px;
+  width: 184px;
+  height: 35px;
+  border-radius: 50%;
+  background: #f5c4d7;
+  box-shadow:
+    inset 0 -6px 8px rgba(0,0,0,0.12);
+}
+
+.cake-decoration {
+  display: inline-block;
+  margin: 7px 10px;
+  color: #9d416d;
+  font-size: 17px;
+}
+
+
+/* =========================================
+   🕯️ REALISTIC CANDLES
+========================================= */
+
+.candles {
+  position: absolute;
+  z-index: 10;
+  top: 5px;
+  left: 90px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.candle-real {
+  width: 24px;
+  height: 72px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.candle-real:hover {
+  transform: scale(1.08);
+}
+
+.candle-stick {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  width: 16px;
+  height: 55px;
+  border-radius: 5px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #f4e6ec 0px,
+      #f4e6ec 4px,
+      #d99ab7 5px,
+      #d99ab7 8px
+    );
+  box-shadow:
+    inset 2px 0 rgba(255,255,255,0.5),
+    2px 3px 5px rgba(0,0,0,0.3);
+}
+
+.wick {
+  position: absolute;
+  z-index: 3;
+  top: 9px;
+  left: 11px;
+  width: 2px;
+  height: 10px;
+  background: #29202a;
+}
+
+.flame {
+  position: absolute;
+  z-index: 5;
+  top: -23px;
+  left: 5px;
+  width: 15px;
+  height: 24px;
+  border-radius: 50% 50% 50% 50%;
+  background: radial-gradient(
+    circle at 50% 70%,
+    #fff8c7 0 25%,
+    #ffd36b 40%,
+    #ff7aa8 70%,
+    transparent 72%
+  );
+  filter: drop-shadow(0 0 9px rgba(255,180,80,0.8));
+  animation: flameFlicker 0.7s infinite alternate;
+}
+
+.small-candle {
+  transform: scale(0.8);
+  margin-top: 15px;
+}
+
+.candle-real.blown .flame {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.candle-real.blown .wick {
+  background: #111;
+}
+
+
+/* Candle message */
+
+.candle-hint {
+  color: #d8c9d5;
+  font-size: 15px;
+  margin-top: 0;
+  animation: hintPulse 2s infinite;
+}
+
+#birthday-celebration {
+  min-height: 80px;
+}
+
+.celebration-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 22px;
+  animation: celebrationPop 0.8s ease;
+}
+
+.celebration-text span {
+  font-size: 25px;
+}
+
+#birthday-celebration p {
+  color: #d8c9d5;
+  animation: dramaticFade 1s ease;
+}
+
+
+/* =========================================
+   🎉 CONFETTI
+========================================= */
+
+.confetti-piece {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  animation: confettiFall linear forwards;
+}
+
+
+/* =========================================
+   ✨ ANIMATIONS
+========================================= */
+
+@keyframes darkAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dramaticFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  from {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1.3);
+    opacity: 0.8;
+  }
+}
+
+@keyframes cakeAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cakeIntro {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flameFlicker {
+  from {
+    transform: rotate(-3deg) scale(0.95);
+  }
+  to {
+    transform: rotate(4deg) scale(1.08);
+  }
+}
+
+@keyframes hintPulse {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes celebrationPop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes confettiFall {
+  from {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(105vh) rotate(720deg);
+    opacity: 0;
+  }
+  }
