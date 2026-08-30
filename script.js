@@ -1,45 +1,81 @@
 const countdown = document.getElementById("countdown");
 const quiz = document.getElementById("quiz");
 
+const questions = [
+  {
+    question: "Before there was an 'us'… there was one particular September day when we first talked. Remember it? 👀",
+    options: ["5 September", "6 September", "7 September", "8 September"],
+    answer: "6 September",
+    reaction: "hmm… you remember 👀 ♡"
+  },
+
+  {
+    question: "Okayyy Mr. Romantic… remember the day you finally decided I was the one? 👀 When exactly was that little historic moment? 💌",
+    options: ["6 September 2024", "7 September 2024", "8 September 2024", "7 September 2025"],
+    answer: "7 September 2024",
+    reaction: "okayyy, Mr. Memory 😭💗"
+  },
+
+  {
+    question: "Date yaad hai… but do you remember the TIME you decided to make us official? 👀",
+    options: ["7:15 PM", "7:30 PM", "7:45 PM", "8:00 PM"],
+    answer: "7:45 PM",
+    reaction: "you better remember this one 🫣♡"
+  },
+
+  {
+    question: "Our first meeting after becoming officially bf & gf… where did our little 'official us' actually happen? 😭",
+    options: ["Petrol pump", "Auto", "Cinema hall", "Tuition"],
+    answer: "Auto",
+    reaction: "HOW could you forget this 😭♡"
+  },
+
+  {
+    question: "Be honest… if we go back to the very beginning, who had the BIGGEST crush? 👀",
+    options: ["You 😌", "Me 💗", "Both equally", "Nobody (LIAR 😭)"],
+    answer: "Me 💗",
+    reaction: "finally, you admit it 😌💗"
+  },
+
+  {
+    question: "Final boss 🎧 — before all the songs, conversations and everything else… which song did YOU suggest to me first?",
+    options: ["CO2", "Heer", "Waqt Ki Baatein", "Kashish"],
+    answer: "Waqt Ki Baatein",
+    reaction: "I knew you'd remember this one ♡"
+  }
+];
+
+let currentQuestion = 0;
 let birthdayShown = false;
 
-// Find the next August 31 at exactly midnight
-function getBirthday() {
+function getNextBirthday() {
   const now = new Date();
 
   let birthday = new Date(
     now.getFullYear(),
     7,
     31,
-    0,
-    0,
-    0,
-    0
+    0, 0, 0, 0
   );
 
-  // If this year's birthday has already finished,
-  // use next year's birthday.
-  if (now >= new Date(now.getFullYear(), 7, 31, 23, 59, 59, 999)) {
+  if (now >= birthday) {
     birthday = new Date(
       now.getFullYear() + 1,
       7,
       31,
-      0,
-      0,
-      0,
-      0
+      0, 0, 0, 0
     );
   }
 
   return birthday;
 }
 
-let birthdayTime = getBirthday();
+let birthdayTime = getNextBirthday();
 
 function updateCountdown() {
   const now = new Date();
 
-  // Birthday day: show the birthday experience
+  // 🎂 August 31 = birthday experience
   if (
     now.getMonth() === 7 &&
     now.getDate() === 31
@@ -49,12 +85,6 @@ function updateCountdown() {
       showBirthday();
     }
     return;
-  }
-
-  // New year after birthday: reset everything
-  if (now >= birthdayTime) {
-    birthdayTime = getBirthday();
-    birthdayShown = false;
   }
 
   const difference = birthdayTime - now;
@@ -100,59 +130,156 @@ function updateCountdown() {
   }
 }
 
-
-// 🎂 Birthday reveal
 function showBirthday() {
   if (countdown) {
     countdown.style.display = "none";
   }
 
   if (quiz) {
-    quiz.style.display = "none";
+    quiz.style.display = "block";
+    startQuiz();
   }
 
-  const oldBirthday = document.querySelector(".birthday-reveal");
+  const intro = document.querySelector(".container > p");
 
-  if (oldBirthday) return;
+  if (intro) {
+    intro.textContent = "today is all about you ♡";
+  }
 
-  const birthday = document.createElement("div");
+  const title = document.querySelector(".container > h1");
 
-  birthday.className = "birthday-reveal";
-
-  birthday.innerHTML = `
-    <div class="little-line">
-      finally... it's your day ♡
-    </div>
-
-    <h1>
-      HAPPY<br>
-      BIRTHDAY
-    </h1>
-
-    <h2>
-      MY BABYYYY ♡
-    </h2>
-
-    <p>
-      Happyyy birthday, Tanmayyyyyy 🥹♡
-    </p>
-
-    <button onclick="startQuiz()">
-      Enter your surprise →
-    </button>
-  `;
-
-  document.querySelector("main").appendChild(birthday);
+  if (title) {
+    title.innerHTML = "HAPPY<br>BIRTHDAY<br>MY BABYYYY ♡";
+  }
 
   createBirthdayHearts();
 }
 
+function startQuiz() {
+  currentQuestion = 0;
+  showQuestion();
+}
 
-// 💗 Floating hearts
+function showQuestion() {
+  const questionNumber =
+    document.getElementById("question-number");
+
+  const question =
+    document.getElementById("question");
+
+  const options =
+    document.getElementById("options");
+
+  const message =
+    document.getElementById("quiz-message");
+
+  if (!question || !options) return;
+
+  const q = questions[currentQuestion];
+
+  questionNumber.textContent =
+    `MEMORY ${currentQuestion + 1} / ${questions.length}`;
+
+  question.textContent = q.question;
+
+  message.textContent = "";
+
+  options.innerHTML = "";
+
+  q.options.forEach(option => {
+    const button = document.createElement("button");
+
+    button.textContent = option;
+
+    button.onclick = () => checkAnswer(option);
+
+    options.appendChild(button);
+  });
+}
+
+function checkAnswer(selected) {
+  const q = questions[currentQuestion];
+
+  const message =
+    document.getElementById("quiz-message");
+
+  if (selected === q.answer) {
+
+    message.textContent = q.reaction;
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+      setTimeout(showQuestion, 1000);
+    } else {
+      setTimeout(showFinalUnlock, 1000);
+    }
+
+  } else {
+
+    message.textContent =
+      "Hmmmm… are you REALLY Tanmay? 👀 Try again, my memory-challenged boy 😭♡";
+  }
+}
+
+function showFinalUnlock() {
+
+  const quiz = document.getElementById("quiz");
+
+  quiz.innerHTML = `
+    <div class="final-unlock">
+
+      <div class="unlock-icon">♡</div>
+
+      <h2>ACCESS GRANTED</h2>
+
+      <p>Okay… you're officially allowed inside. 🥹</p>
+
+      <p>6/6 memories remembered.</p>
+
+      <button onclick="startSurprise()">
+        But your actual surprise starts now… →
+      </button>
+
+    </div>
+  `;
+
+  createBirthdayHearts();
+}
+
+function startSurprise() {
+
+  const quiz = document.getElementById("quiz");
+
+  quiz.innerHTML = `
+    <div class="love-message">
+
+      <p>And now, finally...</p>
+
+      <h2>
+        I LOVEEEE YOUUU<br>
+        SO MUCHHHH<br>
+        TANMAYYYYY ♡
+      </h2>
+
+      <p>
+        Happy Birthday to my favourite human. 💗
+      </p>
+
+    </div>
+  `;
+
+  createBirthdayHearts();
+}
+
 function createBirthdayHearts() {
-  for (let i = 0; i < 30; i++) {
+
+  for (let i = 0; i < 25; i++) {
+
     setTimeout(() => {
-      const heart = document.createElement("span");
+
+      const heart =
+        document.createElement("span");
 
       heart.className = "floating-heart";
       heart.textContent = "♡";
@@ -172,12 +299,10 @@ function createBirthdayHearts() {
         heart.remove();
       }, 3000);
 
-    }, i * 100);
+    }, i * 120);
   }
 }
 
-
-// Start the countdown
 updateCountdown();
 
 setInterval(updateCountdown, 1000);
