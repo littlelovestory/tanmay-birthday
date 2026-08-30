@@ -846,38 +846,32 @@ function showFinalSurprise() {
   `;
 
 }
-// 🎶 VOICE + SONG
-
+// 🎶 FINAL SURPRISE
 function playFinalMessage() {
 
   quiz.innerHTML = `
     <div class="audio-screen">
 
       <p class="little-line">
-        🎧 For you, babyyyy...
+        💗 One last thing...
       </p>
 
       <h2>
-        Just listen... ♡
+        Just for youuu ♡
       </h2>
 
       <p>
-        I wanted you to hear this from me. 🥹💗
+        Some things are better left as words. 🥹💗
       </p>
 
-      <button onclick="playVoiceNote()">
-        💌 Play my voice
-      </button>
-
-      <button onclick="playSong()">
-        🎶 Play your song
+      <button onclick="showEndMessage()">
+        Read my last message ♡
       </button>
 
     </div>
   `;
 
 }
-
 // 🚀 START
 
 updateCountdown();
