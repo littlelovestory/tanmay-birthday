@@ -735,34 +735,51 @@ function createBirthdayHearts() {
     }, i * 120);
   }
 }
-// 🎁 GIFT SURPRISE
+// 🎁 DRAMATIC GIFT SURPRISE
 
 function showGift() {
 
   quiz.innerHTML = `
-    <div class="gift-screen">
+    <div class="gift-screen cinematic-gift">
 
-      <p class="little-line">
-        🎁 I have one last little thing for you...
-      </p>
-
-      <div class="gift-box" onclick="openGift()">
-        🎁
+      <div class="gift-sparkles">
+        ✦　♡　✦　♡　✦
       </div>
 
+      <p class="little-line">
+        🎁 Wait... there's actually one more thing.
+      </p>
+
       <h2>
-        A little gift<br>
-        just for youuu ♡
+        I saved something<br>
+        special for youuu ♡
       </h2>
 
-      <p id="gift-message">
-        Tap the gift, babyyyy 🎁
+      <div class="big-gift" onclick="openGift()">
+
+        <div class="gift-lid">
+          <div class="gift-ribbon-horizontal"></div>
+        </div>
+
+        <div class="gift-body">
+          <div class="gift-ribbon-vertical"></div>
+        </div>
+
+        <div class="gift-bow">
+          <span></span>
+          <span></span>
+        </div>
+
+      </div>
+
+      <p id="gift-message" class="gift-hint">
+        Tap the gift... 🎁
       </p>
 
     </div>
   `;
 
-  }
+}
 // 🎁 OPEN GIFT
 
 function openGift() {
