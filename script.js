@@ -859,7 +859,7 @@ quiz.innerHTML = `
       I want you to know...
     </p>
 
-    <button <button onclick="showEndMessage()">
+    <button onclick="showEndMessage()">
       One last thing ♡
     </button>
 
