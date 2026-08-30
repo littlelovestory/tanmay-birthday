@@ -883,12 +883,12 @@ function showEndMessage() {
       <div class="ending-stars">✦</div>
 
       <p class="ending-whisper">
-        before you leave...
+        before you go...
       </p>
 
       <h2>
-        I just want you<br>
-        to remember one thing.
+        justtt remember thisss,
+        okayyy? ♡
       </h2>
 
       <div class="ending-line"></div>
@@ -896,53 +896,48 @@ function showEndMessage() {
       <div class="ending-text">
 
         <p>
-          Someday, maybe years from now,
-          you'll look back at this little corner
-          of the internet...
+          I hopeee somedayyy, when you look back at thisss,
+          you smileee and remember howwww lovedddd you wereee. ♡
         </p>
 
         <p>
-          and I hope you smile.
-        </p>
-
-        <p>
-          I hope you remember this day,
-          this little birthday surprise,
-          and most importantly...
+          And ifffff any dayyy you feel like you're nottt importanttt,
+          or you feel like you're nottt enoughhh...
         </p>
 
         <p class="highlight">
-          how loved you were.
+          justtt rememberrr that youuu ARE. ♡
         </p>
 
         <p>
-          And if someday you have one of those days
-          when you feel like you're not important...
-          when you feel like you're not enough...
+          Youuu are sooo sooo speciallll to meee,
+          moreee than I couldddd everrr properlyyy explainnn.
         </p>
 
         <p>
-          come back here.
+          And whenever youuu forgettt thattt,
+          I hopeee you rememberrr myyy wordsss.
         </p>
 
         <p>
-          Read these words again.
-          Slowly.
+          I believeee in youuu.
+          I ammm sooo proudddd of youuu.
+          And I alwayyysss wanttt to seeee youuu happYYYY. ♡
         </p>
 
         <p>
-          And remember that somewhere,
-          there is someone who believes in you,
-          is proud of you,
-          and will always want to see you happy.
+          Sooo onnn the daysss when youuu doubt yourselfhh,
+          pleaseee rememberrr thisss...
         </p>
 
         <p class="highlight">
-          You matter.
+          youuu areee LOVEDDDD. ♡
         </p>
 
         <p>
-          More than you probably realise.
+          Moreee than youuu knowww.
+          Moreee than I probablyyy sayyy.
+          And definitelyyy moreee than youuu realiseee.
         </p>
 
       </div>
@@ -952,13 +947,13 @@ function showEndMessage() {
       </div>
 
       <h3>
-        Happy Birthday,<br>
-        Tanmay.
+        Happyyyyyyyy Birthdayyyyyy,<br>
+        myyy babyyyyyyyy. ♡
       </h3>
 
       <p class="last-line">
-        Keep this little place safe.<br>
-        You can come back whenever you need to. ♡
+        And wheneverrr youuu forgettt howwww speciallll youuu areee...
+        rememberrr thattt I willlll alwayyysss reminddd youuu. ♡
       </p>
 
     </div>
