@@ -1438,3 +1438,89 @@ button:active {
     transform: scale(1.12);
   }
   }
+
+/* =========================================
+   🎬 CINEMATIC FINAL EMOTIONAL ENDING
+========================================= */
+
+.cinematic-ending {
+  min-height: 600px;
+  padding: 55px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(201, 143, 157, 0.14),
+      transparent 35%
+    ),
+    #050307;
+
+  border-radius: 24px;
+  animation: endingFade 2s ease forwards;
+}
+
+/* tiny cinematic star */
+
+.ending-stars {
+  color: var(--gold);
+  font-size: 22px;
+  margin-bottom: 25px;
+  animation: starGlow 3s ease-in-out infinite;
+}
+
+/* whisper */
+
+.ending-whisper {
+  color: rgba(248,243,238,0.5);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* main heading */
+
+.cinematic-ending h2 {
+  max-width: 420px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 9vw, 48px);
+  line-height: 1.05;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+/* cinematic line */
+
+.ending-line {
+  width: 45px;
+  height: 1px;
+  margin: 28px auto;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* message */
+
+.ending-text {
+  max-width: 390px;
+}
+
+.ending-text p {
+  margin: 22px auto;
+  color: rgba(248,243,238,0.68);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+/* important words */
+
+.ending-text
