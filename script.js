@@ -1,49 +1,63 @@
-// 🎂 BIRTHDAY COUNTDOWN + YEARLY RESET
+const countdown = document.getElementById("countdown");
+const quiz = document.getElementById("quiz");
 
-function getNextBirthday() {
+let birthdayShown = false;
+
+// Find the next August 31 at exactly midnight
+function getBirthday() {
   const now = new Date();
 
   let birthday = new Date(
     now.getFullYear(),
-    7, // August
+    7,
     31,
-    0, 0, 0, 0
+    0,
+    0,
+    0,
+    0
   );
 
-  // If this year's birthday has already passed,
+  // If this year's birthday has already finished,
   // use next year's birthday.
-  if (now >= birthday) {
+  if (now >= new Date(now.getFullYear(), 7, 31, 23, 59, 59, 999)) {
     birthday = new Date(
       now.getFullYear() + 1,
       7,
       31,
-      0, 0, 0, 0
+      0,
+      0,
+      0,
+      0
     );
   }
 
   return birthday;
 }
 
-let birthdayDate = getNextBirthday();
+let birthdayTime = getBirthday();
 
 function updateCountdown() {
   const now = new Date();
-  const difference = birthdayDate - now;
 
-  // 🎂 MIDNIGHT HAS ARRIVED
-  if (difference <= 0) {
-    showBirthday();
-
-    // Prepare next year's countdown
-    birthdayDate = new Date(
-      now.getFullYear() + 1,
-      7,
-      31,
-      0, 0, 0, 0
-    );
-
+  // Birthday day: show the birthday experience
+  if (
+    now.getMonth() === 7 &&
+    now.getDate() === 31
+  ) {
+    if (!birthdayShown) {
+      birthdayShown = true;
+      showBirthday();
+    }
     return;
   }
+
+  // New year after birthday: reset everything
+  if (now >= birthdayTime) {
+    birthdayTime = getBirthday();
+    birthdayShown = false;
+  }
+
+  const difference = birthdayTime - now;
 
   const days = Math.floor(
     difference / (1000 * 60 * 60 * 24)
@@ -60,8 +74,6 @@ function updateCountdown() {
   const seconds = Math.floor(
     (difference / 1000) % 60
   );
-
-  const countdown = document.getElementById("countdown");
 
   if (countdown) {
     countdown.innerHTML = `
@@ -89,49 +101,57 @@ function updateCountdown() {
 }
 
 
-// 🎉 Birthday reveal
+// 🎂 Birthday reveal
 function showBirthday() {
-  const container = document.querySelector(".container");
+  if (countdown) {
+    countdown.style.display = "none";
+  }
 
-  if (!container) return;
+  if (quiz) {
+    quiz.style.display = "none";
+  }
 
-  container.innerHTML = `
-    <div class="birthday-reveal">
+  const oldBirthday = document.querySelector(".birthday-reveal");
 
-      <p class="little-line">
-        finally... it's your day ♡
-      </p>
+  if (oldBirthday) return;
 
-      <h1>
-        HAPPY<br>
-        BIRTHDAY
-      </h1>
+  const birthday = document.createElement("div");
 
-      <h2>
-        MY BABYYYY ♡
-      </h2>
+  birthday.className = "birthday-reveal";
 
-      <p>
-        Happy Birthday, Tanmay.
-      </p>
-
-      <button onclick="startQuiz()">
-        Enter your surprise →
-      </button>
-
+  birthday.innerHTML = `
+    <div class="little-line">
+      finally... it's your day ♡
     </div>
+
+    <h1>
+      HAPPY<br>
+      BIRTHDAY
+    </h1>
+
+    <h2>
+      MY BABYYYY ♡
+    </h2>
+
+    <p>
+      Happyyy birthday, Tanmayyyyyy 🥹♡
+    </p>
+
+    <button onclick="startQuiz()">
+      Enter your surprise →
+    </button>
   `;
+
+  document.querySelector("main").appendChild(birthday);
 
   createBirthdayHearts();
 }
 
 
-// 💗 Birthday heart animation
+// 💗 Floating hearts
 function createBirthdayHearts() {
   for (let i = 0; i < 30; i++) {
-
     setTimeout(() => {
-
       const heart = document.createElement("span");
 
       heart.className = "floating-heart";
