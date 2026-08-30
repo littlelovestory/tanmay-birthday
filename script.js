@@ -330,14 +330,20 @@ function startSurprise() {
       <p>And now, finally...</p>
 
       <h2>
-        I LOVEEEE YOUUU<br>
+        I LOVEEEE YOUUUU<br>
         SO MUCHHHH<br>
-        TANMAYYYYY ♡
+        <span class="tanmay-name" onclick="heartExplosion()">
+          TANMAYYYYY ♡
+        </span>
       </h2>
 
       <p>
-        Happy Birthday to my favourite human. 💗
+        Tap your name, babyyyy ♡
       </p>
+
+      <button onclick="showBirthdayLetter()">
+        I have something to tell you… →
+      </button>
 
     </div>
   `;
@@ -346,6 +352,39 @@ function startSurprise() {
 }
 
 
+function heartExplosion() {
+
+  for (let i = 0; i < 60; i++) {
+
+    setTimeout(() => {
+
+      const heart = document.createElement("span");
+
+      heart.className = "floating-heart";
+
+      heart.textContent =
+        ["♡", "♥", "💗", "💕"][
+          Math.floor(Math.random() * 4)
+        ];
+
+      heart.style.left =
+        Math.random() * window.innerWidth + "px";
+
+      heart.style.top =
+        window.innerHeight * 0.45 + "px";
+
+      heart.style.fontSize =
+        18 + Math.random() * 35 + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 3000);
+
+    }, i * 35);
+  }
+}
 // ♡ FLOATING HEARTS
 
 function createBirthdayHearts() {
