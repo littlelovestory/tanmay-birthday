@@ -1,3 +1,4 @@
+const TEST_MODE = false;
 const countdown = document.getElementById("countdown");
 const quiz = document.getElementById("quiz");
 
