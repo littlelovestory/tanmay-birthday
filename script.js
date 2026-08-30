@@ -813,26 +813,33 @@ function openGift() {
 
 }
 // 🎶 FINAL SURPRISE
-
 function showFinalSurprise() {
 
   quiz.innerHTML = `
-    <div class="final-surprise">
+    <div class="final-surprise cinematic-final">
+
+      <div class="final-stars">✦ ♡ ✦</div>
 
       <p class="little-line">
-        💗 One last thing...
+        you made it all the way here... 🥹
       </p>
 
       <h2>
-        This one's just for youuu.
+        And now...<br>
+        the last little surprise.
       </h2>
 
-      <p>
-        Put your headphones on, babyyy 🎧♡
+      <div class="final-heart">
+        ♡
+      </div>
+
+      <p class="final-message">
+        There are some things<br>
+        I wanted you to hear from me.
       </p>
 
       <button onclick="playFinalMessage()">
-        Open it... ♡
+        Open my last surprise ♡
       </button>
 
     </div>
