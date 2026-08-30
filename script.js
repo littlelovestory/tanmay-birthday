@@ -555,6 +555,7 @@ function showCake() {
   `;
 
 }
+
 function blowCandle() {
 
   const message =
@@ -565,7 +566,12 @@ function blowCandle() {
 
   createBirthdayHearts();
 
+  setTimeout(() => {
+    showGift();
+  }, 2500);
+
 }
+
 // ♡ FLOATING HEARTS
 
 function createBirthdayHearts() {
@@ -605,7 +611,107 @@ function createBirthdayHearts() {
     }, i * 120);
   }
 }
+// 🎁 GIFT SURPRISE
 
+function showGift() {
+
+  quiz.innerHTML = `
+    <div class="gift-screen">
+
+      <p class="little-line">
+        🎁 I have one last little thing for you...
+      </p>
+
+      <div class="gift-box" onclick="openGift()">
+        🎁
+      </div>
+
+      <h2>
+        A little gift<br>
+        just for youuu ♡
+      </h2>
+
+      <p id="gift-message">
+        Tap the gift, babyyyy 🎁
+      </p>
+
+    </div>
+  `;
+
+  }
+// 🎁 OPEN GIFT
+
+function openGift() {
+
+  const message =
+    document.getElementById("gift-message");
+
+  message.innerHTML =
+    "You actually opened ittt 😭💗";
+
+  setTimeout(() => {
+    showFinalSurprise();
+  }, 2000);
+
+}
+// 🎶 FINAL SURPRISE
+
+function showFinalSurprise() {
+
+  quiz.innerHTML = `
+    <div class="final-surprise">
+
+      <p class="little-line">
+        💗 One last thing...
+      </p>
+
+      <h2>
+        This one's just for youuu.
+      </h2>
+
+      <p>
+        Put your headphones on, babyyy 🎧♡
+      </p>
+
+      <button onclick="playFinalMessage()">
+        Open it... ♡
+      </button>
+
+    </div>
+  `;
+
+}
+// 🎶 VOICE + SONG
+
+function playFinalMessage() {
+
+  quiz.innerHTML = `
+    <div class="audio-screen">
+
+      <p class="little-line">
+        🎧 For you, babyyyy...
+      </p>
+
+      <h2>
+        Just listen... ♡
+      </h2>
+
+      <p>
+        I wanted you to hear this from me. 🥹💗
+      </p>
+
+      <button onclick="playVoiceNote()">
+        💌 Play my voice
+      </button>
+
+      <button onclick="playSong()">
+        🎶 Play your song
+      </button>
+
+    </div>
+  `;
+
+}
 
 // 🚀 START
 
