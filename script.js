@@ -872,6 +872,54 @@ function playFinalMessage() {
   `;
 
 }
+// 💗 FINAL EMOTIONAL MESSAGE
+
+function showEndMessage() {
+
+  quiz.innerHTML = `
+    <div class="end-screen">
+
+      <div class="end-glow"></div>
+
+      <p class="little-line">
+        ✦ before you go... ✦
+      </p>
+
+      <h2>
+        If you remember<br>
+        only one thing...
+      </h2>
+
+      <div class="big-heart">
+        ♡
+      </div>
+
+      <p class="end-message">
+        I hope you always remember<br>
+        how incredibly special you are.
+      </p>
+
+      <p class="end-message">
+        And somewhere in this little corner<br>
+        of the internet...
+      </p>
+
+      <h3>
+        there will always be<br>
+        a little piece of my heart<br>
+        cheering for you. ♡
+      </h3>
+
+      <p class="final-name">
+        Happy Birthday, Tanmay. 🥹💗
+      </p>
+
+    </div>
+  `;
+
+  createBirthdayHearts();
+
+}
 // 🚀 START
 
 updateCountdown();
