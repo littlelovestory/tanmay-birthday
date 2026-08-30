@@ -877,44 +877,92 @@ function playFinalMessage() {
 function showEndMessage() {
 
   quiz.innerHTML = `
-    <div class="end-screen">
 
-      <div class="end-glow"></div>
+    <div class="end-message-screen cinematic-ending">
 
-      <p class="little-line">
-        ✦ before you go... ✦
+      <div class="ending-stars">✦</div>
+
+      <p class="ending-whisper">
+        before you leave...
       </p>
 
       <h2>
-        If you remember<br>
-        only one thing...
+        I just want you<br>
+        to remember one thing.
       </h2>
 
-      <div class="big-heart">
+      <div class="ending-line"></div>
+
+      <div class="ending-text">
+
+        <p>
+          Someday, maybe years from now,
+          you'll look back at this little corner
+          of the internet...
+        </p>
+
+        <p>
+          and I hope you smile.
+        </p>
+
+        <p>
+          I hope you remember this day,
+          this little birthday surprise,
+          and most importantly...
+        </p>
+
+        <p class="highlight">
+          how loved you were.
+        </p>
+
+        <p>
+          And if someday you have one of those days
+          when you feel like you're not important...
+          when you feel like you're not enough...
+        </p>
+
+        <p>
+          come back here.
+        </p>
+
+        <p>
+          Read these words again.
+          Slowly.
+        </p>
+
+        <p>
+          And remember that somewhere,
+          there is someone who believes in you,
+          is proud of you,
+          and will always want to see you happy.
+        </p>
+
+        <p class="highlight">
+          You matter.
+        </p>
+
+        <p>
+          More than you probably realise.
+        </p>
+
+      </div>
+
+      <div class="ending-heart">
         ♡
       </div>
 
-      <p class="end-message">
-        I hope you always remember<br>
-        how incredibly special you are.
-      </p>
-
-      <p class="end-message">
-        And somewhere in this little corner<br>
-        of the internet...
-      </p>
-
       <h3>
-        there will always be<br>
-        a little piece of my heart<br>
-        cheering for you. ♡
+        Happy Birthday,<br>
+        Tanmay.
       </h3>
 
-      <p class="final-name">
-        Happy Birthday, Tanmay. 🥹💗
+      <p class="last-line">
+        Keep this little place safe.<br>
+        You can come back whenever you need to. ♡
       </p>
 
     </div>
+
   `;
 
   createBirthdayHearts();
