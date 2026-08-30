@@ -813,40 +813,6 @@ function openGift() {
 
 }
 // 🎶 FINAL SURPRISE
-function showFinalSurprise() {
-
-  quiz.innerHTML = `
-    <div class="final-surprise cinematic-final">
-
-      <div class="final-stars">✦ ♡ ✦</div>
-
-      <p class="little-line">
-        you made it all the way here... 🥹
-      </p>
-
-      <h2>
-        And now...<br>
-        the last little surprise.
-      </h2>
-
-      <div class="final-heart">
-        ♡
-      </div>
-
-      <p class="final-message">
-        There are some things<br>
-        I wanted you to hear from me.
-      </p>
-
-      <button onclick="playFinalMessage()">
-        Open my last surprise ♡
-      </button>
-
-    </div>
-  `;
-
-}
-// 🎶 FINAL SURPRISE
 function playFinalMessage() {
 
   quiz.innerHTML = `
@@ -876,91 +842,107 @@ function playFinalMessage() {
 
 function showEndMessage() {
 
-  quiz.innerHTML = `
+quiz.innerHTML = `
 
-    <div class="end-message-screen cinematic-ending">
+<div class="end-message-screen cinematic-ending">
 
-      <div class="ending-stars">✦</div>
+  <div class="ending-stars">✦</div>
 
-      <p class="ending-whisper">
-        before you go...
-      </p>
+  <p class="ending-whisper">
+    justtt remember thisss...
+  </p>
 
-      <h2>
-        justtt remember thisss,
-        okayyy? ♡
-      </h2>
+  <h2>
+    if you ever forgettt,<br>
+    come back here. ♡
+  </h2>
 
-      <div class="ending-line"></div>
+  <div class="ending-line"></div>
 
-      <div class="ending-text">
+  <div class="ending-text">
 
-        <p>
-          I hopeee somedayyy, when you look back at thisss,
-          you smileee and remember howwww lovedddd you wereee. ♡
-        </p>
+    <p>
+      I hopeee somedayyy, when you look back at thisss,
+      you smileee and rememberrr just how deeplyyy
+      lovedddd you wereee. ♡
+    </p>
 
-        <p>
-          And ifffff any dayyy you feel like you're nottt importanttt,
-          or you feel like you're nottt enoughhh...
-        </p>
+    <p>
+      And ifffff somedayyy you feel like you're nottt importanttt,
+      or maybeee you starttt doubtinggg yourselfhh...
+    </p>
 
-        <p class="highlight">
-          justtt rememberrr that youuu ARE. ♡
-        </p>
+    <p class="highlight">
+      come back hereee. ♡
+    </p>
 
-        <p>
-          Youuu are sooo sooo speciallll to meee,
-          moreee than I couldddd everrr properlyyy explainnn.
-        </p>
+    <p>
+      Read thisss againnn.
+      And rememberrr that there is someoneee
+      who sees sooo muchhh in youuu.
+    </p>
 
-        <p>
-          And whenever youuu forgettt thattt,
-          I hopeee you rememberrr myyy wordsss.
-        </p>
+    <p>
+      Someoneee who believesee in youuu,
+      who is genuinelyyy proudddd of youuu,
+      and who will alwayyysss wanttt to seeee youuu
+      happyyyy. ♡
+    </p>
 
-        <p>
-          I believeee in youuu.
-          I ammm sooo proudddd of youuu.
-          And I alwayyysss wanttt to seeee youuu happYYYY. ♡
-        </p>
+    <p>
+      Youuu don'ttt have to be perfecttt.
+      Youuu don'ttt have to haveee everythinggg figured outtt.
+    </p>
 
-        <p>
-          Sooo onnn the daysss when youuu doubt yourselfhh,
-          pleaseee rememberrr thisss...
-        </p>
+    <p class="highlight">
+      Justtt neverrr forgettt that youuu matterrr.
+    </p>
 
-        <p class="highlight">
-          youuu areee LOVEDDDD. ♡
-        </p>
+    <p>
+      Youuu areee importanttt.
+      Youuu areee speciallll.
+      And youuu areee so muchhh moreee lovedddd
+      than youuu probablyyy realiseee.
+    </p>
 
-        <p>
-          Moreee than youuu knowww.
-          Moreee than I probablyyy sayyy.
-          And definitelyyy moreee than youuu realiseee.
-        </p>
+    <p>
+      Sooo ifffff lifeee everrr gets too louddd,
+      ifffff youuu everrr forgettt who youuu areee,
+      or ifffff youuu justtt needdd a little reminder...
+    </p>
 
-      </div>
+    <p class="highlight">
+      come backkk to thisss momenttt. ♡
+    </p>
 
-      <div class="ending-heart">
-        ♡
-      </div>
+    <p>
+      Becauseee I wanttt youuu to rememberrr
+      howww speciallll youuu areee,
+      nottt justtt todayyy,
+      buttt onnn everyyyy singleee dayyy.
+    </p>
 
-      <h3>
-        Happyyyyyyyy Birthdayyyyyy,<br>
-        myyy babyyyyyyyy. ♡
-      </h3>
+  </div>
 
-      <p class="last-line">
-        And wheneverrr youuu forgettt howwww speciallll youuu areee...
-        rememberrr thattt I willlll alwayyysss reminddd youuu. ♡
-      </p>
+  <div class="ending-heart">
+    ♡
+  </div>
 
-    </div>
+  <h3>
+    Happyyyyyyyy Birthdayyyyyy,<br>
+    myyy babyyyyyyyy. ♡
+  </h3>
 
-  `;
+  <p class="last-line">
+    And ifffff youuu everrr forgettt...
+    justtt come backkk hereee. ♡
+  </p>
 
-  createBirthdayHearts();
+</div>
+
+`;
+
+createBirthdayHearts();
 
 }
 // 🚀 START
