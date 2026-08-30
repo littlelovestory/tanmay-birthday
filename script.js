@@ -1,28 +1,64 @@
-// ===============================
-// TANMAY'S LITTLE BIRTHDAY SURPRISE ♡
-// ===============================
+// 🎂 BIRTHDAY COUNTDOWN + YEARLY RESET
 
-// 🎂 Birthday countdown
-const birthday = new Date("2026-08-31T00:00:00+05:30").getTime();
+function getNextBirthday() {
+  const now = new Date();
+
+  let birthday = new Date(
+    now.getFullYear(),
+    7, // August
+    31,
+    0, 0, 0, 0
+  );
+
+  // If this year's birthday has already passed,
+  // use next year's birthday.
+  if (now >= birthday) {
+    birthday = new Date(
+      now.getFullYear() + 1,
+      7,
+      31,
+      0, 0, 0, 0
+    );
+  }
+
+  return birthday;
+}
+
+let birthdayDate = getNextBirthday();
 
 function updateCountdown() {
-  const now = new Date().getTime();
-  const difference = birthday - now;
+  const now = new Date();
+  const difference = birthdayDate - now;
 
+  // 🎂 MIDNIGHT HAS ARRIVED
   if (difference <= 0) {
-    document.body.classList.add("birthday-time");
+    showBirthday();
+
+    // Prepare next year's countdown
+    birthdayDate = new Date(
+      now.getFullYear() + 1,
+      7,
+      31,
+      0, 0, 0, 0
+    );
+
     return;
   }
 
-  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const days = Math.floor(
+    difference / (1000 * 60 * 60 * 24)
+  );
+
   const hours = Math.floor(
-    (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    (difference / (1000 * 60 * 60)) % 24
   );
+
   const minutes = Math.floor(
-    (difference % (1000 * 60 * 60)) / (1000 * 60)
+    (difference / (1000 * 60)) % 60
   );
+
   const seconds = Math.floor(
-    (difference % (1000 * 60)) / 1000
+    (difference / 1000) % 60
   );
 
   const countdown = document.getElementById("countdown");
@@ -52,200 +88,76 @@ function updateCountdown() {
   }
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
-
-// ===============================
-// 🔐 PRIVATE LITTLE QUIZ
-// ===============================
-
-// We'll put the real questions here later.
-// Replace the placeholder answers with your actual answers.
-
-const questions = [
-  {
-    question: "Question 1",
-    answer: "answer1"
-  },
-  {
-    question: "Question 2",
-    answer: "answer2"
-  },
-  {
-    question: "Question 3",
-    answer: "answer3"
-  },
-  {
-    question: "Question 4",
-    answer: "answer4"
-  },
-  {
-    question: "Question 5",
-    answer: "answer5"
-  },
-  {
-    question: "Question 6",
-    answer: "answer6"
-  }
-];
-
-let currentQuestion = 0;
-
-function startQuiz() {
-  currentQuestion = 0;
-  showQuestion();
-}
-
-function showQuestion() {
-  const quiz = document.getElementById("quiz");
-
-  if (!quiz) return;
-
-  const q = questions[currentQuestion];
-
-  quiz.innerHTML = `
-    <p class="question-number">
-      ${currentQuestion + 1} / ${questions.length}
-    </p>
-
-    <h2>${q.question}</h2>
-
-    <input
-      id="answer"
-      type="text"
-      placeholder="Your answer..."
-      autocomplete="off"
-    >
-
-    <button onclick="checkAnswer()">
-      Continue ♡
-    </button>
-
-    <p id="wrong-answer"></p>
-  `;
-}
-
-function checkAnswer() {
-  const input = document.getElementById("answer");
-  const message = document.getElementById("wrong-answer");
-
-  const userAnswer = input.value.trim().toLowerCase();
-  const correctAnswer = questions[currentQuestion].answer
-    .trim()
-    .toLowerCase();
-
-  if (userAnswer === correctAnswer) {
-    currentQuestion++;
-
-    if (currentQuestion >= questions.length) {
-      unlockSurprise();
-    } else {
-      showQuestion();
-    }
-  } else {
-    message.textContent = "Hmmmm... try again 👀♡";
-    input.value = "";
-  }
-}
-
-
-// ===============================
-// 💗 UNLOCK
-// ===============================
-
-function unlockSurprise() {
-  const quiz = document.getElementById("quiz");
-
-  if (!quiz) return;
-
-  quiz.innerHTML = `
-    <div class="unlock">
-      <div class="unlock-heart">♡</div>
-      <h2>Okayyy...</h2>
-      <p>
-        You really do know us. 🥹
-      </p>
-      <p>
-        I think you're ready for your surprise.
-      </p>
-
-      <button onclick="openSurprise()">
-        Open it ♡
-      </button>
-    </div>
-  `;
-}
-
-
-// ===============================
-// ✨ SURPRISE
-// ===============================
-
-function openSurprise() {
-  document.body.classList.add("surprise-open");
-
+// 🎉 Birthday reveal
+function showBirthday() {
   const container = document.querySelector(".container");
 
-  if (container) {
-    container.innerHTML = `
-      <p class="little-line">for the one who somehow became</p>
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="birthday-reveal">
+
+      <p class="little-line">
+        finally... it's your day ♡
+      </p>
 
       <h1>
-        my<br>
-        everything ♡
+        HAPPY<br>
+        BIRTHDAY
       </h1>
+
+      <h2>
+        MY BABYYYY ♡
+      </h2>
 
       <p>
         Happy Birthday, Tanmay.
       </p>
 
-      <button onclick="createHeart(event)">
-        tap me ♡
+      <button onclick="startQuiz()">
+        Enter your surprise →
       </button>
-    `;
-  }
 
-  createManyHearts();
+    </div>
+  `;
+
+  createBirthdayHearts();
 }
 
 
-// ===============================
-// 💕 HEART ANIMATION
-// ===============================
+// 💗 Birthday heart animation
+function createBirthdayHearts() {
+  for (let i = 0; i < 30; i++) {
 
-function createHeart(event) {
-  const heart = document.createElement("span");
-
-  heart.className = "floating-heart";
-  heart.textContent = "♡";
-
-  heart.style.left = event.clientX + "px";
-  heart.style.top = event.clientY + "px";
-
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 2500);
-}
-
-function createManyHearts() {
-  for (let i = 0; i < 18; i++) {
     setTimeout(() => {
+
       const heart = document.createElement("span");
 
       heart.className = "floating-heart";
       heart.textContent = "♡";
 
-      heart.style.left = Math.random() * window.innerWidth + "px";
-      heart.style.top = window.innerHeight + "px";
+      heart.style.left =
+        Math.random() * window.innerWidth + "px";
+
+      heart.style.top =
+        window.innerHeight + "px";
+
+      heart.style.fontSize =
+        15 + Math.random() * 25 + "px";
 
       document.body.appendChild(heart);
 
       setTimeout(() => {
         heart.remove();
       }, 3000);
-    }, i * 120);
+
+    }, i * 100);
   }
-          }
+}
+
+
+// Start the countdown
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
