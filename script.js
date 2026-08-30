@@ -385,6 +385,126 @@ function heartExplosion() {
     }, i * 35);
   }
 }
+  }
+}
+
+
+// 💌 BIRTHDAY LETTER
+
+function showBirthdayLetter() {
+
+  quiz.innerHTML = `
+
+    <div class="love-letter">
+
+      <p class="little-line">
+        💌 Today, I want to celebrate YOU.
+      </p>
+
+      <h2>
+        Today is simply about YOUUU ♡
+      </h2>
+
+      <div class="letter-text">
+
+        <p>
+          I don't think I can give youu one particular reason why I loveee
+          youuu… because honestlyyy, there isn't just one reason.
+          It's just <strong>YOUUU</strong>. 🥹💗
+        </p>
+
+        <p>
+          The way you talkkk, your voiceee, your eyesss, especiallyyy when
+          you look at me… idkk how to explain that feelinggg.
+          There are just some things about youuu which I can't even put
+          into words properlyyy. 😭
+        </p>
+
+        <p>
+          And todayyy isn't about usss.<br>
+          It's not about our storyyy, how we mettt, or anything elseee.
+        </p>
+
+        <p>
+          <strong>Aaj bas tumhare baare mein hai. YOUUU. ♡</strong>
+        </p>
+
+        <p>
+          The person you areee.<br>
+          The heart you haveee.<br>
+          The little things that make you uniquelyyy youuu. 🫶🏻
+        </p>
+
+        <p>
+          Youu deserveee the worlddd Tanmayyyyy.
+          Youu deserveee everythinggggg good in thiss worlddd. 😭💗
+        </p>
+
+        <p>
+          May Goddd just giveee you all the happinesssss you deserveee,
+          all the successss, all the peaceee and all the beautifullll
+          thingsss you've ever wished forrr. 🥹🫶🏻
+        </p>
+
+        <p>
+          I hope this yearrr brings youuu sooo manyyy reasons to smileee.
+          Keep believinggg in yourselfhh and neverrrrr forget how capable
+          you areee. ♡
+        </p>
+
+        <p>
+          And no matter how old you gettt…
+        </p>
+
+        <p>
+          <strong>you'll alwaysss be my little babyyyyy. 😭🫶🏻</strong>
+        </p>
+
+        <p>
+          So todayyy, no “us”.<br>
+          No our storyyy.<br>
+          No memories.<br>
+          No anythinggg.
+        </p>
+
+        <p>
+          <strong>
+            Just youuu.<br>
+            Your birthdayyy.<br>
+            Your dayyyy. 🎂💗
+          </strong>
+        </p>
+
+        <h3>
+          Happyyyyyyyy Birthdayyyyyy<br>
+          myyy babyyyyyyhhh ♡
+        </h3>
+
+        <p>
+          I justttt prayyy that life gives youuu sooo muchhh happinessss
+          that you neverrrr run out of reasonsss to smileee. 🥹💗
+        </p>
+
+        <p>
+          Happy Birthdayyy once againnn, my babyyyy. ♡
+        </p>
+
+      </div>
+
+      <button onclick="showNextSurprise()">
+        There's more waiting for you… ♡ →
+      </button>
+
+    </div>
+  `;
+
+  createBirthdayHearts();
+}
+
+
+// ♡ FLOATING HEARTS
+
+function createBirthdayHearts() {
 // ♡ FLOATING HEARTS
 
 function createBirthdayHearts() {
