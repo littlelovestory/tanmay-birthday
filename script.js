@@ -31,13 +31,6 @@ const questions = [
   },
 
   {
-    question: "Be honest… if we go back to the very beginning, who had the BIGGEST crush? 👀",
-    options: ["You 😌", "Me 💗", "Both equally", "Nobody (LIAR 😭)"],
-    answer: "Me 💗",
-    reaction: "finally, you admit it 😌💗"
-  },
-
-  {
     question: "Final boss 🎧 — before all the songs, conversations and everything else… which song did YOU suggest to me first?",
     options: ["CO2", "Heer", "Waqt Ki Baatein", "Kashish"],
     answer: "Waqt Ki Baatein",
