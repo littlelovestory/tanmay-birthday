@@ -1070,3 +1070,172 @@ button:active {
     opacity: 0;
   }
   }
+
+/* =========================================
+   🎁 CINEMATIC GIFT
+========================================= */
+
+.cinematic-gift {
+  min-height: 600px;
+  padding: 45px 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 55%,
+    rgba(255, 150, 205, 0.14),
+    transparent 35%),
+    #08050a;
+  border-radius: 24px;
+  animation: giftAppear 1.2s ease;
+}
+
+.cinematic-gift h2 {
+  color: white;
+  font-size: 28px;
+  line-height: 1.35;
+}
+
+.gift-sparkles {
+  color: #f5bfd8;
+  font-size: 20px;
+  letter-spacing: 5px;
+  animation: sparklePulse 2s infinite;
+}
+
+/* BIG GIFT */
+
+.big-gift {
+  position: relative;
+  width: 190px;
+  height: 170px;
+  margin: 70px auto 35px;
+  cursor: pointer;
+  filter: drop-shadow(0 20px 25px rgba(0,0,0,0.6));
+  transition: transform 0.3s ease;
+}
+
+.big-gift:hover {
+  transform: scale(1.06);
+}
+
+/* Gift box */
+
+.gift-body {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 170px;
+  height: 115px;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    #d86f9d,
+    #8d3d65
+  );
+  box-shadow:
+    inset 8px 0 rgba(255,255,255,0.12),
+    inset -8px 0 rgba(0,0,0,0.15);
+}
+
+/* Lid */
+
+.gift-lid {
+  position: absolute;
+  z-index: 4;
+  top: 20px;
+  left: 0;
+  width: 190px;
+  height: 42px;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    #ed9fbe,
+    #a84e77
+  );
+  box-shadow:
+    0 7px 12px rgba(0,0,0,0.35);
+}
+
+/* Ribbon */
+
+.gift-ribbon-horizontal {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 190px;
+  height: 13px;
+  background: #f7d6e4;
+}
+
+.gift-ribbon-vertical {
+  position: absolute;
+  z-index: 2;
+  left: 77px;
+  top: 0;
+  width: 17px;
+  height: 115px;
+  background: #f7d6e4;
+}
+
+/* Bow */
+
+.gift-bow {
+  position: absolute;
+  z-index: 8;
+  top: -5px;
+  left: 63px;
+  width: 65px;
+  height: 45px;
+}
+
+.gift-bow span {
+  position: absolute;
+  width: 48px;
+  height: 30px;
+  border: 7px solid #f7d6e4;
+  border-radius: 50% 50% 45% 45%;
+}
+
+.gift-bow span:first-child {
+  left: -12px;
+  transform: rotate(-25deg);
+}
+
+.gift-bow span:last-child {
+  right: -12px;
+  transform: rotate(25deg);
+}
+
+.gift-hint {
+  color: #d8c9d5;
+  font-size: 15px;
+  animation: hintPulse 2s infinite;
+}
+
+
+/* Gift animations */
+
+@keyframes giftAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.75) translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes sparklePulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+      }
