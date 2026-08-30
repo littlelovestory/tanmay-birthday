@@ -873,10 +873,6 @@ createBirthdayHearts();
 
 }
 
-<button onclick="showEndMessage()">
-  One last thing ♡
-</button>
-
 // 💗 FINAL EMOTIONAL MESSAGE
 
 function showEndMessage() {
